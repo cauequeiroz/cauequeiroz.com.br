@@ -1,5 +1,5 @@
 module.exports = {
-    source: './src',
+    source: './src/content',
     destination: './public',
     metadata: {
         site: {
@@ -20,7 +20,7 @@ module.exports = {
     },
     layouts: {
         engine: 'handlebars',
-        directory: './layouts',
+        directory: './src/layouts',
         default: 'article.html',
         pattern: ["*/*/*html", "*/*html", "*html"],
         partials: {
@@ -35,7 +35,7 @@ module.exports = {
     watch: {
         paths: {
             "${source}/**/*": true,
-            "layouts/**/*": "**/*"
+            "src/layouts/**/*": "**/*"
         }
     }
 };
