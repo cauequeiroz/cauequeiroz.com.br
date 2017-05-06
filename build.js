@@ -6,6 +6,7 @@ var Metalsmith  = require('metalsmith')(__dirname),
     watch       = require('metalsmith-watch'),
     serve       = require('metalsmith-serve'),
     handlebars  = require('handlebars'),
+    shell       = require('child_process').execSync,
     task        = process.argv[2];
 
 Metalsmith
@@ -40,21 +41,29 @@ Metalsmith
         }
     }));
 
-    if ( task === 'watch' ) {
-        Metalsmith
-            .use(serve({
-                port: 8081,
-                verbose: true
-            }))
-            .use(watch({
-                paths: {
-                    "${source}/**/*": true,
-                    "layouts/**/*": "**/*"
-                }
-            }));
+if ( task === 'watch' ) {
+    Metalsmith
+        .use(serve({
+            port: 8081,
+            verbose: true
+        }))
+        .use(watch({
+            paths: {
+                "${source}/**/*": true,
+                "layouts/**/*": "**/*"
+            }
+        }));
+}
+
+Metalsmith.build(function(err) {
+    if ( err ) throw err;
+
+    if ( task === 'build' ) {
+        console.log('[DEV] Build complete!');
     }
 
-Metalsmith
-    .build(function(err) {
-        console.log( err ? err : '[DEV] Complete!' );
-    });
+    if ( task === 'deploy' ) {
+        shell('sh ./deploy.sh');
+        console.log('[DEV] Deploy complete!');
+    }
+});

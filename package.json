@@ -5,8 +5,8 @@
   "main": "build.js",
   "scripts": {
     "start": "node . build",
-    "watch": "node . watch",
-    "deploy": "sh ./deploy.sh"
+    "deploy": "node . deploy",
+    "watch": "node . watch"    
   },
   "devDependencies": {
     "handlebars": "^4.0.8",
