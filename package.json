@@ -1,8 +1,21 @@
 {
+  "private": true,
   "name": "cauequeiroz.com.br",
   "version": "1.0.0",
-  "description": "My Personal blog about front-end development.",
-  "author": "Caue Queiroz",
-  "license": "ISC",
-  "private": true
+  "main": "build.js",
+  "scripts": {
+    "start": "node . build",
+    "watch": "node . watch",
+    "deploy": "npm run start && sh ./deploy.sh"
+  },
+  "devDependencies": {
+    "handlebars": "^4.0.8",
+    "metalsmith": "^2.3.0",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-layouts": "^1.8.1",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.5.0",
+    "metalsmith-serve": "0.0.7",
+    "metalsmith-watch": "^1.0.3"
+  }
 }
