@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node . build",
     "watch": "node . watch",
-    "deploy": "npm run start && sh ./deploy.sh"
+    "deploy": "sh ./deploy.sh"
   },
   "devDependencies": {
     "handlebars": "^4.0.8",
