@@ -2,14 +2,15 @@
   "private": true,
   "name": "cauequeiroz.com.br",
   "version": "1.0.0",
-  "main": "build.js",
+  "main": "metalsmith.js",
   "scripts": {
     "start": "node . build",
     "deploy": "node . deploy",
-    "watch": "node . watch"    
+    "watch": "node . watch"
   },
   "devDependencies": {
     "handlebars": "^4.0.8",
+    "load-metalsmith-plugins": "^0.1.1",
     "metalsmith": "^2.3.0",
     "metalsmith-collections": "^0.9.0",
     "metalsmith-layouts": "^1.8.1",
