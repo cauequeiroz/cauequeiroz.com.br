@@ -19,10 +19,13 @@ metalsmith
     .metadata(config.metadata)
     .source(config.source)
     .destination(config.destination)
+    .use(plugins.dateInFilename())
     .use(plugins.collections(config.collections))
+    .use(plugins.dateFormatter(config.dateFormatter))
     .use(plugins.markdown())
     .use(plugins.permalinks(config.permalinks))
-    .use(plugins.layouts(config.layouts));
+    .use(plugins.layouts(config.layouts))
+    .use(plugins.assets(config.assets));
 
 if ( task === 'watch' ) {
     metalsmith

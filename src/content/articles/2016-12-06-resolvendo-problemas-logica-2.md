@@ -1,6 +1,5 @@
 ---
 title: "Resolvendo Problemas de Lógica #2"
-date: 2016-12-06 14:00:00
 ---
 
 ## Introdução

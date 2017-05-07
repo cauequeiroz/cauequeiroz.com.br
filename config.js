@@ -7,6 +7,9 @@ module.exports = {
             description: 'My personal blog about front-end development.'
         }
     },
+    dateFormatter: {
+        format: 'DD/MM/YYYY'
+    },
     collections: {
         articles: {
             pattern: 'articles/**/*.md',
@@ -17,7 +20,7 @@ module.exports = {
             pattern: 'articles/**/*.md',
             sortBy: 'date',
             reverse: true,
-            limit: 4
+            limit: 5
         }
     },
     permalinks: {
@@ -34,6 +37,10 @@ module.exports = {
             footer: 'partials/footer'
         }
     },
+    assets: {
+        source: 'src/assets',
+        destination: '.'
+    },
     serve: {
         port: 8081,
         verbose: true
@@ -41,7 +48,9 @@ module.exports = {
     watch: {
         paths: {
             "${source}/**/*": true,
-            "src/layouts/**/*": "**/*"
-        }
+            "src/layouts/**/*": "**/*",
+            "src/assets/**/*": "**/*"
+        },
+        livereload: true
     }
 };

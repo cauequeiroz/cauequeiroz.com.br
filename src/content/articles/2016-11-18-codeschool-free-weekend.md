@@ -1,6 +1,5 @@
 ---
 title: "CodeSchool Free Weekend!"
-date: 2016-11-18 10:00:00
 ---
 
 Esse final de semana começa com uma notícia mais do que especial: para comemorar a marca de 3 milhões de estudantes, a CodeSchool liberou **todos os cursos** gratuitamente pelos próximos 3 dias.

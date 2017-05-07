@@ -3,6 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title>{{#if title }}{{ title }} - {{/if}}{{ site.name }}</title>
-    <meta name="description" content="{{#if blurb }}{{ blurb }}{{else}}{{#if description }}{{ description }}{{else}}{{ site.description }}{{/if}}{{/if}}">
+    <meta name="description" content="{{ site.description }}">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header-title">{{ site.name }}</h2>
+
+            <nav class="header-navigation">
+                <a href="/posts" class="button button-primary">Posts</a>
+                <a href="/about" class="button">Sobre</a>
+            </nav>
+        </div>
+    </header>

@@ -1,6 +1,5 @@
 ---
 title: "Cursos gratuitos do Udacity"
-date: 2016-11-10 10:00:00
 ---
 
 Uma das coisas que mais me atraem na nossa área é a liberdade que temos para estudar por conta própria. Nada melhor do que separar os assuntos do teu interesse e estudar no seu tempo, do seu jeito. Para melhorar, ainda temos a nossa disposição blogs, artigos, livros e cursos completos gratuitos espalhados pelas interwebs. Nossa área é realmente um prato cheio para autodidatas, curiosos e apaixonados.

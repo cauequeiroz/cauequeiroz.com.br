@@ -1,6 +1,5 @@
 ---
 title: "Javascript Fundamentals - Objeto String #4"
-date: 2016-11-05 18:00:00
 ---
 
 Chegamos no fim de mais um objeto da série Javascript Fundamentals! Finalizamos o objeto String com a conversa de hoje. Vamos aos últimos métodos então. :)

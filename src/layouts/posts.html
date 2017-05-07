@@ -1,10 +1,10 @@
 {{> header }}
-    <section class="page page-index">
+    <section class="page page-posts">
         <div class="container">
-            <p class="info">Últimos posts</p>
+            <p class="info">Todos os posts</p>
 
             <ul class="post-list">
-                {{#each homeArticles }}
+                {{#each articles }}
                 <li class="post">
                     <a href="{{ path }}">
                         <p class="date">{{ date }}</p>
@@ -13,8 +13,6 @@
                 </li>
                 {{/each}}
             </ul>
-
-            <a href="/posts" class="button button-invert">Ver todos os posts</a>
         </div>
     </section>
 {{> footer }}

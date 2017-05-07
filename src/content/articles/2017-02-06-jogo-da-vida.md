@@ -1,6 +1,5 @@
 ---
 title: "Jogo da Vida, de John Conway"
-date: 2017-02-06 17:00:00
 ---
 
 Estava lendo o blog do Marco Gomes quando encontrei algo que foi, de longe, uma das coisas mais divertidas que já programei: [O Jogo da Vida](http://marcogomes.com/blog/2008/o-jogo-da-vida-de-john-conway/).
