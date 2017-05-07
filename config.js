@@ -12,6 +12,12 @@ module.exports = {
             pattern: 'articles/**/*.md',
             sortBy: 'date',
             reverse: true
+        },
+        homeArticles: {
+            pattern: 'articles/**/*.md',
+            sortBy: 'date',
+            reverse: true,
+            limit: 4
         }
     },
     permalinks: {
