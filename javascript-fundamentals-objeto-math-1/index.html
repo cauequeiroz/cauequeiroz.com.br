@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Fundamentals - Objeto Math #1 - Caue Queiroz</title>
+    <meta name="description" content="My personal blog about front-end development.">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header-title">Caue Queiroz</h2>
+
+            <nav class="header-navigation">
+                <a href="/" class="button button-primary">Posts</a>
+                <a href="/about" class="button">Sobre</a>
+            </nav>
+        </div>
+    </header>    <article class="page post">
+        <div class="container">
+            <h1>Javascript Fundamentals - Objeto Math #1</h1>
+
+            <p>O objeto Math, como o próprio nome sugere, é responsável por oferecer métodos e propriedades do universo matemático. Algumas coisas são bem específicas para quem está fazendo cálculos complexos ou trabalhando com conceitos matemáticos avançados, não muito comuns no dia a dia. Por isso optei por não abordar tudo que a linguagem oferece e focar nos métodos que são mais utilizados.</p>
+<p><code>ceil()</code>, <code>floor()</code> e <code>round()</code>.</p>
+<h3 id="ceil-">ceil()</h3>
+<p>Método usado para <strong>arredondar</strong> um número para cima.</p>
+<p>{% highlight js %}
+var num = 41.25;</p>
+<p>// The answer to life, the universe and everything
+var answer = Math.ceil(num);</p>
+<p>console.log(answer);</p>
+<blockquote>
+<p>42
+{% endhighlight %}</p>
+</blockquote>
+<h3 id="floor-">floor()</h3>
+<p>Método usado para <strong>arredondar</strong> um número para baixo.</p>
+<p>{% highlight js %}
+var num = 42.87;</p>
+<p>// The answer to life, the universe and everything...again.
+var answer = Math.floor(num);</p>
+<p>console.log(answer);</p>
+<blockquote>
+<p>42
+{% endhighlight %}</p>
+</blockquote>
+<h3 id="round-">round()</h3>
+<p>Método usado para <strong>arredondar</strong> um número.</p>
+<p>{% highlight js %}
+var num = 42.36;</p>
+<p>// Última vez, prometo!
+var answer = Math.round(num);</p>
+<p>console.log(answer);</p>
+<blockquote>
+<p>42
+{% endhighlight %}</p>
+</blockquote>
+<p>Diferente dos dois métodos anteriores, esse arredondará para o inteiro mais próximo. Sendo um pouco mais específico: <code>0.5</code> ou maior arredonda para cima e, se for menor que isso, o número é arredondado para baixo.</p>
+<hr>
+<blockquote>
+<p>_Esse post faz parte de uma série. Quer ver as outras postagens? <a href="{% post_url 2016-10-10-javascript-fundamentals %}">Clique aqui</a>._</p>
+</blockquote>
+
+        </div>
+    </article>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

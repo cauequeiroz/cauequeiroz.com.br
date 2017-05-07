@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Resolvendo Problemas de Lógica #1 - Caue Queiroz</title>
+    <meta name="description" content="My personal blog about front-end development.">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header-title">Caue Queiroz</h2>
+
+            <nav class="header-navigation">
+                <a href="/" class="button button-primary">Posts</a>
+                <a href="/about" class="button">Sobre</a>
+            </nav>
+        </div>
+    </header>    <article class="page post">
+        <div class="container">
+            <h1>Resolvendo Problemas de Lógica #1</h1>
+
+            <p>Ladies and gentlemen, hoje damos início a uma das séries que me motivaram a escrever esse blog! O formato é completamente experimental, não sei qual será a frequência das postagens, quantidade de problemas, dificuldade dos problemas e afins. A ideia é simplesmente começar e, aos poucos (e de acordo com o feedback de vocês &lt;3), ir dando forma a isso.</p>
+<p>Então, deixe um comentário falando o que achou desse formato e quais as suas sugestões para os próximos episódios!</p>
+<h2 id="introdu-o">Introdução</h2>
+<p>Seu cérebro é a melhor ferramenta que você terá. Não importa o quanto você conheça da linguagem, programar é igual fazer um bolo: você pode ter todos os ingredientes na sua frente e ainda sim o bolo não será feito ao menos que você saiba como juntar tudo isso.</p>
+<p>Desenvolver seu raciocínio lógico e sua capacidade de resolver problemas é, sem dúvidas nenhuma, um dos melhores investimentos que você pode fazer em você mesmo. É muito comum um desenvolvedor mais experiente olhar o código de algum projeto meu e sugerir uma refatoração específica no código. É incrível como, apesar de eu conhecer o mesmo javascript que ele, essa sugestão é algo que eu nunca teria pensado, algo muito mais enxuto, performático e incrível.</p>
+<p>Caso você não conheça, existe um site chamado <strong>CodeWars</strong>. Ele oferece uma série de problemas separado por nível de dificuldade. Você vai ganhando experiência e subindo de nível conforme for resolvendo esses desafios! Você pode criar sua conta <a href="http://www.codewars.com/r/h2nQcA">clicando aqui</a>.</p>
+<h2 id="problemas">Problemas</h2>
+<p><strong>1)</strong> Crie uma função que verifique se um número é par ou ímpar. Ela deve receber um número inteiro como argumento e retornar <em>&quot;Even&quot;</em> caso o número seja par ou <em>&quot;Odd&quot;</em> caso o número seja ímpar. <a href="https://www.codewars.com/kata/even-or-odd/train/javascript">Teste sua solução</a>.</p>
+<p><strong>2)</strong> Crie uma função que some os dois menores números. Essa função receberá um array com pelo menos 4 números inteiros e positivos e deverá retornar a soma dos dois menores números. <a href="https://www.codewars.com/kata/sum-of-two-lowest-positive-integers/train/javascript">Teste sua solução</a>.</p>
+<p><strong>3)</strong> Crie uma função que filtre números. Essa função receberá um array com números, inteiros e positivos, e strings. O retorno dessa função deverá ser um array apenas com os números. <a href="https://www.codewars.com/kata/list-filtering/train/javascript">Teste sua solução</a>.</p>
+<h2 id="solu-es">Soluções</h2>
+<p>Tente resolver cada um dos desafios antes de continuar a leitura. Caso não tenha conseguido algum, sem problemas, a seguir você terá uma solução comentada de cada um deles! Estudar o raciocínio por trás de uma solução é uma ótima forma de se preparar para os próximos desafios. :)</p>
+<h3 id="problema-1">Problema 1</h3>
+<p>Crie uma função que verifique se um número é par ou ímpar. Ela deve receber um número inteiro como argumento e retornar “Even” caso o número seja par ou “Odd” caso o número seja ímpar.</p>
+<p>Para início de conversa, vamos criar a função que conterá toda a lógica desse problema:</p>
+<p>{% highlight js %}
+function even_or_odd(number) {</p>
+<p>}
+{% endhighlight %}</p>
+<p>Precisamos fazer uma verificação nesse <code>number</code> e, de acordo com o resultado, fazer a função retornar uma mensagem específica, vamos construir isso.</p>
+<p>{% highlight js %}
+function even_or_odd(number) {<br>    if ( /<em> number é par? </em>/ ) {
+        return &#39;Even&#39;; 
+    } else {
+        return &#39;Odd&#39;;
+    }
+}
+{% endhighlight %}</p>
+<p>Apesar desse problema ser extremamente simples, ele exige algum conhecimento prévio de matemática. Como sabemos se um número é par ou ímpar? Basicamente, todo número que for <strong>divisível por 2</strong> será par. Por outro lado, se ele não for divisível, será ímpar. Ser divisível implica em o <strong>resto da divisão ser 0</strong>.</p>
+<p>O javascript possui um operador que vai nos ajudar bastante agora: <code>%</code>. Esse operador verifica quanto é o resto da divisão de um número pelo outro, exatamente o que precisamos! Vamos construir nossa condição e finalizar o desafio.</p>
+<p>{% highlight js %}
+function even_or_odd(number) {<br>    if ( number % 2 === 0 ) {
+        return &#39;Even&#39;; 
+    } else {
+        return &#39;Odd&#39;;
+    }
+}
+{% endhighlight %}</p>
+<p>Se o resto da divisão de <code>number</code> por <code>2</code> for <code>0</code>, sabemos que ele é par. Caso contrário, nossa função retorna que ele é ímpar.</p>
+<p>Uma solução ainda mais enxuta utilizando <em>condicionais ternários</em> (<code>?:</code>) e o fato de que <code>0</code> é considerado <code>false</code> e qualquer outro número <code>true</code>:</p>
+<p>{% highlight js %}
+function even_or_odd(number) {<br>    return number % 2 ? &#39;Odd&#39; : &#39;Even&#39;;
+}
+{% endhighlight %}</p>
+<h3 id="problema-2">Problema 2</h3>
+<p>Crie uma função que some os dois menores números. Essa função receberá um array com pelo menos 4 números inteiros e positivos e deverá retornar a soma dos dois menores números.</p>
+<p>Novamente, vamos criar a função que receberá esses números:</p>
+<p>{% highlight js %}
+function sumTwoSmallestNumbers(numbers) {  </p>
+<p>};
+{% endhighlight %}</p>
+<p>É bem interessante pensarmos de uma forma um pouco mais abstrata antes de colocarmos a mão na massa. Para solucionar esse problema, precisamos apenas de dois passos:</p>
+<p><strong>1.</strong> Ordenar esse array de números <strong>do menor para o maior</strong>.<br><strong>2.</strong> Com ele ordenado, conseguimos a soma dos dois menores números simplesmente somando o número da <strong>posição 0</strong> com o número da <strong>posição 1</strong>. Afinal, esses são os dois menores números.</p>
+<p>Perfeito, agora como traduzir isso para Javascript? Para ordenar o array podemos usar o método <code>sort()</code>. Caso nunca tenha ouvido falar, eu escrevi sobre ele em um dos artigos da série Javascript Fundamentals:</p>
+<p><a href="{% post_url 2016-10-12-javascript-fundamentals-objeto-array-2 %}#sort">Javascript Fundamentals - Objeto Array #2 (sort)</a></p>
+<p>Aliás, nesse mesmo post temos um exemplo de uso do método <code>sort()</code> para ordenar números. Caso não entenda o que eu vou fazer a seguir, só conferir a explicação no post. :)</p>
+<p>{% highlight js %}
+function sumTwoSmallestNumbers(numbers) {</p>
+<pre><code>// Ordenando os números do MENOR para o MAIOR
+var arr = numbers.sort(function(a, b){
+    return a - b;
+});
+</code></pre><p>}
+{% endhighlight %}</p>
+<p>Para finalizar, basta retornarmos a soma das duas primeiras posições desse array.</p>
+<p>{% highlight js %}
+function sumTwoSmallestNumbers(numbers) {</p>
+<pre><code>// Ordenando os números do MENOR para o MAIOR
+var arr = numbers.sort(function(a, b){
+    return a - b;
+});
+
+// Retornando a soma dos dois menores números
+return arr[0] + arr[1];
+</code></pre><p>}
+{% endhighlight %}</p>
+<h3 id="problema-3">Problema 3</h3>
+<p>Crie uma função que filtre números. Essa função receberá um array com números, inteiros e positivos, e strings. O retorno dessa função deverá ser um array apenas com os números.</p>
+<p>Vamos a função que receberá esse array:</p>
+<p>{% highlight js %}
+function filter_list(list) {</p>
+<p>}
+{% endhighlight %}</p>
+<p>Precisamos passar por cada item do array, verificar se ele é um número ou não e fazer a filtragem. Como podemos fazer isso? Utilizando o método <code>filter()</code>, claro! Caso nunca tenha usado, também escrevi sobre ele em um post da série Javascript Fundamentals.</p>
+<p><a href="{% post_url 2016-10-17-javascript-fundamentals-objeto-array-5 %}#filter">Javascript Fundamentals - Objeto Array #5 (filter)</a></p>
+<p>Esse método retorna um novo array, vamos deixar nesse array apenas os elementos que forem do tipo <code>number</code>. Essa é uma verificaçao bem simples de se fazer utilizando o operador <code>typeof</code>.</p>
+<p>{% highlight js %}
+function filter_list(list) {</p>
+<pre><code>// Gerando um array apenas com elementos do tipo &#39;number&#39;
+var numbers = list.filter(function(elem) {
+    return typeof elem === &#39;number&#39;;
+});
+</code></pre><p>}
+{% endhighlight %}</p>
+<p>Por fim, basta retornarmos esse novo array.</p>
+<p>{% highlight js %}
+function filter_list(list) {</p>
+<pre><code>// Gerando um array apenas com elementos do tipo &#39;number&#39;
+var numbers = list.filter(function(elem) {
+    return typeof elem === &#39;number&#39;;
+});
+
+return numbers;
+</code></pre><p>}
+{% endhighlight %}</p>
+<p>Caso queira escrever utilizando algumas features do <em>es6</em> como <code>const</code> e <code>arrow functions</code>, a solução será a seguinte:</p>
+<p>{% highlight js %}
+const filter_list = list =&gt; list.filter(elem =&gt; typeof elem === &#39;number&#39;);
+{% endhighlight %}</p>
+<hr>
+<p>Como dito no início, é bastante experimental esse formato de post. Seu feedback é muito importante para os próximos que vou escrever! Mais desafios? Menos? Que tal apenas um desafio com uma dificuldade maior? Deixe nos comentários o que achou e quais suas sugestões para os próximos.</p>
+<p>Ah, não se esqueça de criar sua conta no <a href="http://www.codewars.com/r/h2nQcA">CodeWars</a> e resolver esses e muitos outros desafios de programação. :)</p>
+
+        </div>
+    </article>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Fundamentals - Objeto String #4 - Caue Queiroz</title>
+    <meta name="description" content="My personal blog about front-end development.">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header-title">Caue Queiroz</h2>
+
+            <nav class="header-navigation">
+                <a href="/" class="button button-primary">Posts</a>
+                <a href="/about" class="button">Sobre</a>
+            </nav>
+        </div>
+    </header>    <article class="page post">
+        <div class="container">
+            <h1>Javascript Fundamentals - Objeto String #4</h1>
+
+            <p>Chegamos no fim de mais um objeto da série Javascript Fundamentals! Finalizamos o objeto String com a conversa de hoje. Vamos aos últimos métodos então. :)</p>
+<p><code>substring()</code>, <code>slice()</code>, <code>search()</code> e <code>match()</code>.</p>
+<h3 id="substring-">substring()</h3>
+<p>Método usado para <strong>extrair</strong> um trecho específico de uma string.</p>
+<p>{% highlight js %}
+var browser = &#39;Google Chrome&#39;;</p>
+<p>// Extraindo apenas a palavra &quot;Google&quot;
+var foo = browser.substring(0, 6);</p>
+<p>console.log(foo);</p>
+<blockquote>
+<p>&quot;Google&quot;
+{% endhighlight %}</p>
+</blockquote>
+<p>O <strong>primeiro parâmetro</strong> é a posição que você deseja iniciar a captura. Se você passar um valor negativo, o javascript contará as posições do fim da string para o começo.</p>
+<p>O <strong>segundo parâmetro</strong> é a posição que você deseja finalizar a captura. É preciso ficar atento, pois o resultado não inclui o caractere dessa posição. No nosso exemplo, a última letra da palavra &quot;Google&quot; fica na posição <code>5</code>. Porém, devido a esse detalhe, eu passei como parâmetro a posição <code>6</code>.</p>
+<h3 id="slice-">slice()</h3>
+<p>Método usado para <strong>extrair</strong> um trecho específico de uma string.</p>
+<p>{% highlight js %}
+var browser = &#39;Google Chrome&#39;;</p>
+<p>// Extraindo apenas a palavra &quot;Google&quot;
+var foo = browser.slice(0, 6);</p>
+<p>console.log(foo);</p>
+<blockquote>
+<p>&quot;Google&quot;
+{% endhighlight %}</p>
+</blockquote>
+<p>Seu funcionamento é bem semelhante ao método <code>substring()</code>. Passe como <strong>primeiro parâmetro</strong> a posição inicial do corte e como <strong>segundo parâmetro</strong> a posição final.</p>
+<h3 id="search-">search()</h3>
+<p>Usado para <strong>procurar</strong> algo em uma string com base em uma expressão regular.</p>
+<p>{% highlight js %}
+var nome = &quot;Caue 1234 Queiroz&quot;;</p>
+<p>// Qual posição tem algum número?
+var check = nome.search(/[0-9]/);</p>
+<p>console.log(check);</p>
+<blockquote>
+<p>5
+{% endhighlight %}</p>
+</blockquote>
+<p>Passe como parâmetro uma expressão regular com o critério que você deseja buscar. O retorno desse método será a posição da primeira ocorrência encontrada.</p>
+<p>Caso não seja encontrado nada na string, o retorno será <code>-1</code>.</p>
+<h3 id="match-">match()</h3>
+<p>Método usado para <strong>procurar</strong> algo em uma string com base em uma expressão regular.</p>
+<p>{% highlight js %}
+var nome = &quot;Caue 1234 Queiroz&quot;;</p>
+<p>// Quais os números nessa string?
+var check = nome.match(/[0-9]/g);</p>
+<p>console.log(check);</p>
+<blockquote>
+<p>[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;]
+{% endhighlight %}</p>
+</blockquote>
+<p>Diferente do <code>search()</code> que retorna a posição, o retorno desse método será um array com todas as ocorrências encontradas. Passe como parâmetro a expressão regular que deseja usar para fazer a busca.</p>
+<hr>
+<blockquote>
+<p>_Esse post faz parte de uma série. Quer ver as outras postagens? <a href="{% post_url 2016-10-10-javascript-fundamentals %}">Clique aqui</a>._</p>
+</blockquote>
+
+        </div>
+    </article>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

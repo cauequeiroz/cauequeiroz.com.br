@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Resolvendo Problemas de Lógica #2 - Caue Queiroz</title>
+    <meta name="description" content="My personal blog about front-end development.">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header-title">Caue Queiroz</h2>
+
+            <nav class="header-navigation">
+                <a href="/" class="button button-primary">Posts</a>
+                <a href="/about" class="button">Sobre</a>
+            </nav>
+        </div>
+    </header>    <article class="page post">
+        <div class="container">
+            <h1>Resolvendo Problemas de Lógica #2</h1>
+
+            <h2 id="introdu-o">Introdução</h2>
+<p>Seu cérebro é a melhor ferramenta que você terá. Não importa o quanto você conheça da linguagem, programar é igual fazer um bolo: você pode ter todos os ingredientes na sua frente e ainda sim o bolo não será feito ao menos que você saiba como juntar tudo isso.</p>
+<p>Desenvolver seu raciocínio lógico e sua capacidade de resolver problemas é, sem dúvidas nenhuma, um dos melhores investimentos que você pode fazer em você mesmo. É muito comum um desenvolvedor mais experiente olhar o código de algum projeto meu e sugerir uma refatoração específica no código. É incrível como, apesar de eu conhecer o mesmo javascript que ele, essa sugestão é algo que eu nunca teria pensado, algo muito mais enxuto, performático e incrível.</p>
+<p>Caso você não conheça, existe um site chamado <strong>CodeWars</strong>. Ele oferece uma série de problemas separado por nível de dificuldade. Você vai ganhando experiência e subindo de nível conforme for resolvendo esses desafios! Você pode criar sua conta <a href="http://www.codewars.com/r/h2nQcA">clicando aqui</a>.</p>
+<h2 id="problema">Problema</h2>
+<p>Você mora na cidade de Cartesia, onde todas as estradas são dispostas em um <em>grid</em> perfeito. Você chegou dez minutos mais cedo para uma consulta, então você decidiu aproveitar esse tempo e fazer uma breve caminhada. A cidade fornece aos seus cidadãos um <em>Walk Generating App</em> em seus celulares - toda vez que você pressiona o botão o aplicativo te envia um array com as direções sugeridas para você seguir. Essas direções são representadas pelas letras <code>n</code> (north), <code>s</code> (south), <code>w</code> (west) e <code>e</code> (east). Você sabe que demora <strong>um minuto</strong> para seguir cada sugestão.</p>
+<p>Crie uma função que retornará <em>true</em> caso a caminhada que o aplicativo lhe sugerir dure exatamente <strong>dez minutos</strong> (você não quer se atrasar ou chegar cedo demais na consulta!) e, é claro, se as direções sugeridas te levarem de volta ao seu ponto de partida. Caso contrário, essa função deverá retornar <em>false</em>. <a href="https://www.codewars.com/kata/take-a-ten-minute-walk/train/javascript">Teste sua solução</a>.</p>
+<h2 id="solu-o">Solução</h2>
+<p>Tente resolver o desafio antes de continuar a leitura. Caso não tenha conseguido, sem problemas, a seguir você terá uma solução comentada do problema proposto! Estudar o raciocínio por trás de uma solução é uma ótima forma de se preparar para os próximos desafios. :)</p>
+<p>O primeiro passo é entender completamente o problema que você precisará resolver. Conforme explicado no enunciado, vamos receber um array com algumas direções (representadas pelas letras <code>n</code>, <code>s</code>, <code>w</code> e <code>e</code>) e precisamos verificar se:</p>
+<p><strong>1)</strong> Seguindo essa sugestão, a caminhada dura exatamente <strong>10 minutos</strong>.<br><strong>2)</strong> Se essas direções propostas vão nos levar de volta para o ponto de partida.</p>
+<p>Se essas duas condições forem verdadeiras, temos uma caminhada válida e podemos retornar <em>true</em>. Caso contrário, nossa função retornará <em>false</em>.</p>
+<p>{% highlight js %}
+function isValidWalk(walk) {</p>
+<p>}
+{% endhighlight %}</p>
+<p>Verificar se a duração da caminhada será de 10 minutos é bem simples. Sabemos que cada direção dura 1 minuto para seguir, certo? Logo, basta verificarmos se recebemos exatamente 10 direções (10 direções * 1 minuto cada = 10 minutos):</p>
+<p>{% highlight js %}
+function isValidWalk(walk) {
+    if ( walk.length === 10 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+{% endhighlight %}</p>
+<p>Podemos escrever isso de uma forma um pouco mais enxuta, já que nossa condição já resulta em <em>true</em> ou <em>false</em>:</p>
+<p>{% highlight js %}
+function isValidWalk(walk) {
+    return walk.length === 10;
+}
+{% endhighlight %}</p>
+<p>Agora precisamos saber se a caminhada proposta nos levará de volta ao ponto de partida. Existem diversas formas de se fazer isso, felizmente o problema pede a forma mais simples possível: se eu andei <code>x</code> para uma direção, preciso andar a mesma quantidade na direção oposta para retornar ao ponto de partida. O que isso quer dizer?</p>
+<ul>
+<li>Se eu dei um passo para a direita, preciso dar um passo para a esquerda para retornar.</li>
+<li>Se eu dei dois passos para o norte, preciso dar dois passos para o sul para retornar.</li>
+<li>Se eu comecei com <code>n-n-w</code> (north, north e west), preciso após isso andar <code>e-s-s</code> (east, south e south) para retornar.</li>
+</ul>
+<p>Simples, não? Seguindo essa lógica, basta verificarmos se a quantidade de <code>n</code> sugerida é igual a de <code>s</code> e, de forma semelhante, se a quantidade de <code>w</code> sugerida é igual a de <code>e</code>. Se forem iguais, não importa qual seja o caminho, sempre retornaremos ao ponto de partida.</p>
+<p>Na prática, vamos armazenar em variáveis a quantidade de cada direção e comparar se as direções opostas são iguais! Perfeito, vamos para o código então.</p>
+<p>Podemos utilizar a função <code>filter()</code> para verificar quantas vezes determinada sugestão foi sugerida dentro de um array:</p>
+<p>{% highlight js %}
+var walk = [&#39;n&#39;, &#39;s&#39;, &#39;n&#39;, &#39;n&#39;, &#39;e&#39;, &#39;w&#39;];</p>
+<p>// Quantos &#39;n&#39; temos nesse array?</p>
+<p>// 1 - Vamos filtrar esse array e deixar
+// apenas os itens &#39;n&#39;
+var n = walk.filter(function(item) {
+    return item === &#39;n&#39;;
+});</p>
+<p>// 2 - O length desse novo array nos dirá
+// quantos &#39;n&#39; temos!
+console.log( n.length );</p>
+<blockquote>
+<p>3
+{% endhighlight %}</p>
+</blockquote>
+<p>Caso não saiba utilizar o método <code>filter()</code> ainda, eu escrevi sobre ele em um dos posts da série Javascript Fundamentals.</p>
+<p><a href="{% post_url 2016-10-17-javascript-fundamentals-objeto-array-5 %}#filter">Javascript Fundamentals - Objeto Array #5 (filter)</a></p>
+<p>{% highlight js %}
+function isValidWalk(walk) {
+    var n = walk.filter(function(item) { return item === &#39;n&#39; }).length;
+    var s = walk.filter(function(item) { return item === &#39;s&#39; }).length;
+    var w = walk.filter(function(item) { return item === &#39;w&#39; }).length;
+    var e = walk.filter(function(item) { return item === &#39;e&#39; }).length;</p>
+<pre><code>return walk.length === 10;
+</code></pre><p>}
+{% endhighlight %}</p>
+<p>Podemos deixar isso um pouco mais organizado utilizando <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a>...</p>
+<p>{% highlight js %}
+function isValidWalk(walk) {
+    var n = walk.filter((item) =&gt; item === &#39;n&#39;).length;
+    var s = walk.filter((item) =&gt; item === &#39;s&#39;).length;
+    var w = walk.filter((item) =&gt; item === &#39;w&#39;).length;
+    var e = walk.filter((item) =&gt; item === &#39;e&#39;).length;</p>
+<pre><code>return walk.length === 10;
+</code></pre><p>}
+{% endhighlight %}</p>
+<p>...e armazenando essas variáveis em um objeto!</p>
+<p>{% highlight js %}
+function isValidWalk(walk) {
+    var dir = {
+        &#39;n&#39;: walk.filter((item) =&gt; item===&#39;n&#39;).length,
+        &#39;s&#39;: walk.filter((item) =&gt; item===&#39;s&#39;).length,
+        &#39;w&#39;: walk.filter((item) =&gt; item===&#39;w&#39;).length,
+        &#39;e&#39;: walk.filter((item) =&gt; item===&#39;e&#39;).length
+    };</p>
+<pre><code>return walk.length === 10;
+</code></pre><p>}
+{% endhighlight %}</p>
+<p>Estamos chegando no final desse problema. Vamos comparar as direções opostas agora:</p>
+<p>{% highlight js %}
+function isValidWalk(walk) {
+    var dir = {
+        &#39;n&#39;: walk.filter((item) =&gt; item===&#39;n&#39;).length,
+        &#39;s&#39;: walk.filter((item) =&gt; item===&#39;s&#39;).length,
+        &#39;w&#39;: walk.filter((item) =&gt; item===&#39;w&#39;).length,
+        &#39;e&#39;: walk.filter((item) =&gt; item===&#39;e&#39;).length
+    };</p>
+<pre><code>if ( dir[&#39;n&#39;] === dir[&#39;s&#39;] &amp;&amp; dir[&#39;w&#39;] === dir[&#39;e&#39;] &amp;&amp; walk.length === 10 ) {
+    return true;
+} else {
+    return false;
+}
+</code></pre><p>}
+{% endhighlight %}</p>
+<p>Novamente, vamos deixar nossa condicional um pouco mais enxuta e finalizar a solução desse problema! :)</p>
+<p>{% highlight js %}
+function isValidWalk(walk) {<br>  var dir = {
+    &#39;n&#39;: walk.filter((item) =&gt; item===&#39;n&#39;).length,
+    &#39;s&#39;: walk.filter((item) =&gt; item===&#39;s&#39;).length,
+    &#39;w&#39;: walk.filter((item) =&gt; item===&#39;w&#39;).length,
+    &#39;e&#39;: walk.filter((item) =&gt; item===&#39;e&#39;).length
+  }</p>
+<p>  return dir[&#39;n&#39;] === dir[&#39;s&#39;] &amp;&amp; dir[&#39;w&#39;] === dir[&#39;e&#39;] &amp;&amp; walk.length === 10;
+}
+{% endhighlight %}</p>
+<hr>
+<p>Como dito anteriormente, é bastante experimental esse formato de post. Seu feedback é muito importante para os próximos que vou escrever! Mais desafios? Menos? Que tal apenas um desafio com uma dificuldade maior? Deixe nos comentários o que achou e quais suas sugestões para os próximos.</p>
+<p>Ah, não se esqueça de criar sua conta no <a href="http://www.codewars.com/r/h2nQcA">CodeWars</a> e resolver esses e muitos outros desafios de programação. :)</p>
+
+        </div>
+    </article>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>

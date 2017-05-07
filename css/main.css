@@ -1,0 +1,158 @@
+/*  General
+-------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font: 300 18px 'Open Sans', Arial, sans-serif;
+    color: #333;
+    background: #F8F8F8;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/*  Fonts
+-------------------------------------------------------- */
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Josefin Sans', Arial, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/*  Buttons
+-------------------------------------------------------- */
+
+.button {
+    font: bold 11px 'Josefin Sans', Arial, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid #fff;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    text-align: center;
+    min-width: 160px;
+    display: inline-block;
+    color: #fff;
+}
+
+.button:not(:last-child) {
+    margin-right: 24px;
+}
+
+.button-primary {
+    color: #34495E;
+    background: #fff;
+}
+
+.button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    transition: all .2s ease;
+}
+
+/*  Header
+-------------------------------------------------------- */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 400px;
+    background: #34495E;
+    color: #fff;
+}
+
+.header-title {
+    margin-bottom: 25px;
+    font-size: 64px;
+}
+
+.header-navigation {
+    margin-top: 80px;
+    position: relative;
+}
+
+.header-navigation:before {
+    content: '';
+    width: 100px;
+    height: 1px;
+    color: #fff;
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    display: block;
+    background: rgba(255, 255, 255, 0.3);
+    margin-left: -50px;
+}
+
+/*  Page
+-------------------------------------------------------- */
+
+.page {
+    padding-bottom: 100px;
+}
+
+.page .container {
+    background: #fff;
+    transform: translateY(-50px);
+    box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+}
+
+
+/*  Article List
+-------------------------------------------------------- */
+
+.list .info {
+    line-height: 150px;
+    text-align: center;
+    font-family: 'Josefin Sans';
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #34495E;
+    position: relative;
+}
+
+.list ul {
+    list-style: none;
+}
+
+.list ul li {
+    min-height: 50px;    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);    
+}
+.list a {
+    color: inherit;
+    padding: 40px;
+    display: block;
+    overflow: auto;
+}
+.list ul li:hover {
+    cursor: pointer;
+    background: rgba(200, 200, 200, 0.1);
+}
+.list .title {
+    font-size: 20px;
+    text-transform: uppercase;
+    float: left;
+}
+.list .date {
+    float: right;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Javascript Fundamentals - Objeto Math #2 - Caue Queiroz</title>
+    <meta name="description" content="My personal blog about front-end development.">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700|Open+Sans:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h2 class="header-title">Caue Queiroz</h2>
+
+            <nav class="header-navigation">
+                <a href="/" class="button button-primary">Posts</a>
+                <a href="/about" class="button">Sobre</a>
+            </nav>
+        </div>
+    </header>    <article class="page post">
+        <div class="container">
+            <h1>Javascript Fundamentals - Objeto Math #2</h1>
+
+            <p>O objeto Math, como o próprio nome sugere, é responsável por oferecer métodos e propriedades do universo matemático. Algumas coisas são bem específicas para quem está fazendo cálculos complexos ou trabalhando com conceitos matemáticos avançados, não muito comuns no dia a dia. Por isso optei por não abordar tudo que a linguagem oferece e focar nos métodos que são mais utilizados.</p>
+<p><code>random()</code>, <code>max()</code> e <code>min()</code>.</p>
+<h3 id="random-">random()</h3>
+<p>Método usado para <strong>gerar</strong> um número aleatório entre <code>0</code> e <code>1</code>.</p>
+<p>{% highlight js %}
+var rand = Math.random();</p>
+<p>console.log(rand);</p>
+<blockquote>
+<p>0.5180834594573922
+{% endhighlight %}</p>
+</blockquote>
+<p>Você consegue, utilizando esse método, escrever funções que gerem números aleatórios entre <strong>x</strong> e <strong>y</strong>. Quer saber mais sobre isso? Escrevi um post bem bacana explicando todo o processo!</p>
+<p><a href="{% post_url 2016-10-23-gerando-um-numero-aleatorio %}">Gerando um número aleatório entre x e y</a>;</p>
+<h3 id="max-">max()</h3>
+<p>Esse método retorna o <strong>maior</strong> número entre duas ou mais opções.</p>
+<p>{% highlight js %}
+var maior = Math.max(5, 4, 9, 1, 12, 8);</p>
+<p>console.log(maior);</p>
+<blockquote>
+<p>12
+{% endhighlight %}</p>
+</blockquote>
+<h3 id="min-">min()</h3>
+<p>Esse método retorna o <strong>menor</strong> número entre duas ou mais opções.</p>
+<p>{% highlight js %}
+var menor = Math.min(5, 4, 9, 1, 12, 8);</p>
+<p>console.log(menor);</p>
+<blockquote>
+<p>1
+{% endhighlight %}</p>
+</blockquote>
+<p>Você também pode passar um array de números para os métodos <code>max()</code> e <code>min()</code>. Porém, se você tentar passar apenas o array, ambos os métodos retornarão <code>NaN</code>. Para que tudo funcione, adicione <code>...</code> antes do parâmetro:</p>
+<p>{% highlight js %}
+var notas = [50, 2, 100, 5, 5, 20];</p>
+<p>// Qual é a maior nota?
+var check = Math.max(...notas);</p>
+<p>console.log(check);</p>
+<blockquote>
+<p>100
+{% endhighlight %}</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>_Esse post faz parte de uma série. Quer ver as outras postagens? <a href="{% post_url 2016-10-10-javascript-fundamentals %}">Clique aqui</a>._</p>
+</blockquote>
+
+        </div>
+    </article>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>
