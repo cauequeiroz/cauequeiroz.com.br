@@ -1,0 +1,200 @@
+/*  General
+-------------------------------------------------------- */
+html,
+body {
+    height: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font: 18px 'Open Sans', Arial, sans-serif;
+    font-weight: 300;
+    color: #333;
+    background: #F8F8F8;
+}
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+/*  Fonts
+-------------------------------------------------------- */
+h1, h2, h3, h4, h5 {
+    font-family: 'Josefin Sans', Arial, sans-serfi;
+    font-weight: bold;
+}
+
+/*  Buttons
+-------------------------------------------------------- */
+.button {
+    font: 11px 'Josefin Sans', Arial, sans-serif;
+    font-weight: bold;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    text-align: center;
+    min-width: 160px;
+    display: inline-block;
+    margin-right: 1.5rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.button-primary {
+    color: #34495E;
+    background: #fff;
+}
+
+.button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    transition: all .2s ease;
+}
+
+/*  Header
+-------------------------------------------------------- */
+.main-header {
+    position: fixed;
+    width: 100%;
+    background: rgba(52,73,94, 0.3);
+    line-height: 100px;
+}
+
+.main-header .brand {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 25px;
+    float: left;
+}
+
+.main-header .navigation {
+    float: right;
+}
+.navigation ul {
+    list-style: none;
+}
+.navigation ul li {
+    display: inline-block;
+}
+.navigation .button {
+    border: none;
+    min-width: auto;
+    margin-right: 10px;
+}
+
+.navigation .button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transition: background .2s ease;
+}
+.navigation ul li:last-child .button {
+    margin-right: 0;
+}
+.navigation .github .icon {
+    width: 32px;
+    height: 32px;
+    transform: translateY(10px);
+    fill: #fff;
+}
+.navigation .github .icon:hover {
+    fill: rgba(0, 0, 0, 0.2);
+    transition: fill .2s ease;
+}
+
+/*  Cover
+-------------------------------------------------------- */
+.cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    background: #34495E;
+    color: #fff;
+    text-align: center;
+}
+
+.cover-title {
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-size: 64px;
+}
+
+.cover-description {
+    font-size: 20px;
+    width: 960px;
+    margin: 0 auto;
+}
+
+.cover-navigation {
+    margin-top: 80px;
+    position: relative;
+}
+
+.cover-navigation:before {
+    content: '';
+    width: 100px;
+    height: 1px;
+    color: #fff;
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    display: block;
+    background: rgba(255, 255, 255, 0.3);
+    margin-left: -50px;
+}
+
+.cover-navigation .button + .button {
+    margin-right: 0;
+}
+
+/*  Article List
+-------------------------------------------------------- */
+.list {
+    padding-bottom: 100px;
+}
+
+.list .container {
+    background: #fff;
+    transform: translateY(-50px);
+    box-shadow: 0 30px 50px 0 rgba(1,1,1,.15);
+}
+
+.list .info {
+    line-height: 150px;
+    text-align: center;
+    font-family: 'Josefin Sans';
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #34495E;
+    position: relative;
+}
+
+.list ul {
+    list-style: none;
+}
+
+.list ul li {
+    padding: 40px;
+    min-height: 50px;
+    overflow: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);    
+}
+.list ul li:hover {
+    cursor: pointer;
+    background: rgba(200, 200, 200, 0.1);
+}
+.list .title {
+    font-size: 20px;
+    text-transform: uppercase;
+    float: left;
+}
+.list .date {
+    float: right;
+}
